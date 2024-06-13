@@ -59,6 +59,10 @@
         <torquer>
             <enable>true</enable>
         </torquer>
+        <echo>
+            <enable>true</enable>
+        </echo>
+
     </components>
     <gui>
         <enable>true</enable>

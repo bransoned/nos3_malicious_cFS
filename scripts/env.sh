@@ -26,20 +26,20 @@ OPENC3_PATH=$OPENC3_DIR/openc3.sh
 ### Notes: 
 ###   Podman and/or Docker on RHEL not yet supported
 ###
-#if [ -f "/etc/redhat-release" ]; then
-#    DCALL="docker"
-#    DFLAGS="docker run --rm -it -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -u $(id -u $(stat -c '%U' $SCRIPT_DIR/env.sh)):$(getent group $(stat -c '%G' $SCRIPT_DIR/env.sh) | cut -d: -f3)"
-#    DFLAGS_CPUS="$DFLAGS --cpus=$NUM_CPUS"
-#    DCREATE="docker create --rm -it"
-#    DNETWORK="docker network"
-#else
-# changed all these from docker to podman
+if [ -f "/etc/redhat-release" ]; then
     DCALL="podman"
     DFLAGS="podman run --rm -it -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -u $(id -u $(stat -c '%U' $SCRIPT_DIR/env.sh)):$(getent group $(stat -c '%G' $SCRIPT_DIR/env.sh) | cut -d: -f3)"
     DFLAGS_CPUS="$DFLAGS --cpus=$NUM_CPUS"
     DCREATE="podman create --rm -it"
     DNETWORK="podman network"
-#fi
+else
+# changed all these from docker to podman
+    DCALL="docker"
+    DFLAGS="docker run --rm -it -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -u $(id -u $(stat -c '%U' $SCRIPT_DIR/env.sh)):$(getent group $(stat -c '%G' $SCRIPT_DIR/env.sh) | cut -d: -f3)"
+    DFLAGS_CPUS="$DFLAGS --cpus=$NUM_CPUS"
+    DCREATE="docker create --rm -it"
+    DNETWORK="docker network"
+fi
 
 DBOX="ivvitc/nos3-64:20240430"
 
