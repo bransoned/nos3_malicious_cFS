@@ -12,3 +12,8 @@ build
 support/nos3_install.log
 tmp
 core.*
+
+#
+# Virtual Environment
+#
+.venv/

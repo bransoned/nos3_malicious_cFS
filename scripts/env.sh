@@ -33,28 +33,29 @@ OPENC3_PATH=$OPENC3_DIR/openc3.sh
 #    DCREATE="docker create --rm -it"
 #    DNETWORK="docker network"
 #else
-    DCALL="docker"
-    DFLAGS="docker run --rm -it -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -u $(id -u $(stat -c '%U' $SCRIPT_DIR/env.sh)):$(getent group $(stat -c '%G' $SCRIPT_DIR/env.sh) | cut -d: -f3)"
+# changed all these from docker to podman
+    DCALL="podman"
+    DFLAGS="podman run --rm -it -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -u $(id -u $(stat -c '%U' $SCRIPT_DIR/env.sh)):$(getent group $(stat -c '%G' $SCRIPT_DIR/env.sh) | cut -d: -f3)"
     DFLAGS_CPUS="$DFLAGS --cpus=$NUM_CPUS"
-    DCREATE="docker create --rm -it"
-    DNETWORK="docker network"
+    DCREATE="podman create --rm -it"
+    DNETWORK="podman network"
 #fi
 
 DBOX="ivvitc/nos3-64:20240430"
 
 # Debugging
-#echo "Script directory = " $SCRIPT_DIR
-#echo "Base directory   = " $BASE_DIR
-#echo "DFLAGS           = " $DFLAGS
-#echo "FSW directory    = " $FSW_DIR
-#echo "GSW bin          = " $GSW_BIN
-#echo "GSW directory    = " $GSW_DIR
-#echo "Sim directory    = " $SIM_BIN
-#echo "Sim list         = " $SIMS
-#echo "Docker flags     = " $DFLAGS
-#echo "Docker create    = " $DCREATE
-#echo "Docker network   = " $DNETWORK
-#echo "Date             = " $DATE
-#echo "Local user .nos3 = " $USER_NOS3_DIR
-#echo "OpenC3 directory = " $OPENC3_DIR
-#echo "OpenC3 path      = " $OPENC3_PATH
+echo "Script directory = " $SCRIPT_DIR
+echo "Base directory   = " $BASE_DIR
+echo "DFLAGS           = " $DFLAGS
+echo "FSW directory    = " $FSW_DIR
+echo "GSW bin          = " $GSW_BIN
+echo "GSW directory    = " $GSW_DIR
+echo "Sim directory    = " $SIM_BIN
+echo "Sim list         = " $SIMS
+echo "Docker flags     = " $DFLAGS
+echo "Docker create    = " $DCREATE
+echo "Docker network   = " $DNETWORK
+echo "Date             = " $DATE
+echo "Local user .nos3 = " $USER_NOS3_DIR
+echo "OpenC3 directory = " $OPENC3_DIR
+echo "OpenC3 path      = " $OPENC3_PATH

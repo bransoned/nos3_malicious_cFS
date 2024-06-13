@@ -1,0 +1,19 @@
+Steps to add a new cFS app in the NOS3 simulation:
+
+./components/sample/generate_template.sh <new name here>
+
+All files will now be in:
+
+../<new name here>
+
+Add new component name and follow general structure to these FSW files:
+
+./cfg/nos3_defs/cpu1_cfe_es_startup.scr
+./cfg/nos3_defs/targets.cmake
+./cfg/nos3_defs/tables/* # not really sure when this is needed
+
+Add new component name and follow general structure to there GSW files:
+
+./gsw/cosmos/config/system/nos3_system.txt
+./gsw/cosmos/config/tools/cmd_tlm_server/nos3_cmd_tlm_server.txt
+./scripts/launch.sh
