@@ -33,7 +33,6 @@ if [ -f "/etc/redhat-release" ]; then
     DCREATE="podman create --rm -it"
     DNETWORK="podman network"
 else
-# changed all these from docker to podman
     DCALL="docker"
     DFLAGS="docker run --rm -it -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -u $(id -u $(stat -c '%U' $SCRIPT_DIR/env.sh)):$(getent group $(stat -c '%G' $SCRIPT_DIR/env.sh) | cut -d: -f3)"
     DFLAGS_CPUS="$DFLAGS --cpus=$NUM_CPUS"
