@@ -4,7 +4,7 @@ Steps to add a new cFS app in the NOS3 simulation:
 
 All files will now be in:
 
-../<new name here>
+./components/<new name here>
 
 Add new component name and follow general structure to these FSW files:
 
@@ -14,6 +14,11 @@ Add new component name and follow general structure to these FSW files:
 
 Add new component name and follow general structure to there GSW files:
 
-./gsw/cosmos/config/system/nos3_system.txt
-./gsw/cosmos/config/tools/cmd_tlm_server/nos3_cmd_tlm_server.txt
+./gsw/cosmos/config/system/system.txt
+./gsw/cosmos/config/tools/cmd_tlm_server/cmd_tlm_server.txt
 ./scripts/launch.sh
+
+
+Not really sure how to format this one. Just follow sample ig?
+./cfg/sims/nos3-simulator.xml
+
